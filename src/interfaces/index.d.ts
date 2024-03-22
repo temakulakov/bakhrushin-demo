@@ -44,6 +44,8 @@ interface IExposition extends IEntity{
 
 interface IFilials extends IEntity {
     imageUrl: string;
+    imageAddUrl: string;
+    backgroundColor: string;
     position: string;
     type: "quarter" | "filial";
 }

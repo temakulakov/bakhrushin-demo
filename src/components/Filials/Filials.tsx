@@ -12,7 +12,7 @@ const types: IEntity[] = [
 
 const Filials = () => {
     const data = useSelector(selectFilials);
-    const [ selectType, setSelectType ] = useState<Number>(0)
+    const [ selectType, setSelectType ] = useState<Number>(1)
 
 
     return <div className={styles.wrapper}>
