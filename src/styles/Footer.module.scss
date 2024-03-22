@@ -1,0 +1,44 @@
+.wrapper {
+    background-color: #54565A;
+    margin-top: 40px;
+    margin-bottom: 140px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 130px;
+  h1 {
+    color: white;
+    margin-bottom: 65px;
+  }
+  a {
+    color: white;
+    margin-bottom: 25px;
+  }
+}
+
+.references {
+  display: flex;
+  width: 100%;
+
+  img {
+    margin-left: 15px;
+  }
+  img:first-child {
+    margin: 0;
+  }
+}
