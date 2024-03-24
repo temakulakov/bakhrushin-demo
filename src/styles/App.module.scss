@@ -2,6 +2,44 @@
   width: 80%;
   margin: 0 auto;
   max-width: 2500px;
+  h1, h2, h3 {
+    font-family: 'TT Nooks', sans-serif;
+    text-transform: uppercase;
+
+    color: #54565A;
+  }
+  h1 {
+    font-size: 28px;
+    height: 26px;
+  }
+
+  h4, h5, h6, p {
+    font-family: 'TT Norms', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #54565A;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-family: 'TT Norms', sans-serif;
+
+  }
+
+  button {
+    border: 1px solid #54565A;
+    color: #54565A;
+    border-radius: 25px;
+    background: none;
+    cursor: pointer;
+    padding: 10px 30px;
+    transition: 0.4s all;
+    &:hover {
+      background: #54565A;
+      color: white;
+    }
+  }
 }
 
 @media only screen and (max-width: 1600px) {

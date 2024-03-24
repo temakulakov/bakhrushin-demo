@@ -16,7 +16,7 @@ const Widget = (props: any) => {
             <div>
                 <p>{slide.description}</p>
                 <div>
-                    <h1>{slide.title}</h1>
+                    <h1 className={styles.title}>{slide.title}</h1>
                     <div className={styles.buttonGroup}>
                         <button >{slide.buttonText}</button>
                         <button onClick={() => setCurrentIndex((currentIndex - 1 + slides.length) % slides.length)}>

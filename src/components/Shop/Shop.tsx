@@ -3,6 +3,7 @@ import styles from 'styles/Shop.module.scss';
 import {useSelector} from "react-redux";
 import {selectShop} from "../../store/slices/shop";
 import ShopElement from "./Shop.Element";
+import { motion } from "framer-motion";
 
 const Shop = () => {
     const items = useSelector(selectShop);
@@ -12,13 +13,13 @@ const Shop = () => {
             <h1>{"Магазин"}</h1>
             <button>{"Перейти в магазин"}</button>
         </div>
-        <div className={styles.content}>
+        <motion.div className={styles.content} style={{ y: 50, x: '-10%' }}>
             {itemsJSX}
-        </div>
+        </motion.div>
 
-        <div className={styles.content}>
+        <motion.div className={styles.content} style={{ y: 400,x: '-10%' }}>
             {itemsJSX}
-        </div>
+        </motion.div>
     </div>
 };
 
