@@ -16,6 +16,9 @@ const FilialCard = ({ filial }: FilialCardProps) => {
 
 
     const [ hover, setHover ] = useState(false);
+    const [ buttonHover, setButtonHover ] = useState(false);
+
+    const textColor = getTextColorBasedOnBgColor(filial.backgroundColor);
 
     useEffect(() => {
         console.log("Element is in view: ", isInView)
@@ -52,8 +55,10 @@ const FilialCard = ({ filial }: FilialCardProps) => {
                     <AnimatePresence>
                         {
                             hover && <motion.button
+                            onMouseEnter={() => setButtonHover(true)}
+                            onMouseLeave={() => setButtonHover(false)}
                                 initial={{opacity: 0, transform: "translateY(0px)"}}
-                                animate={{opacity: 1, transform: "translateY(35px)", color: getTextColorBasedOnBgColor(filial.backgroundColor), borderColor: getTextColorBasedOnBgColor(filial.backgroundColor)}}
+                                animate={{opacity: 1, transform: "translateY(35px)", color: buttonHover ? filial.backgroundColor : textColor, borderColor: textColor, backgroundColor: buttonHover ? textColor : 'transparent'}}
                                 exit={{opacity: 0, transform: "translateY(0px)"}}
                             >{`Перейти в ${filial.type === 'quarter' ? 'Здание' : 'Филиал'}`}</motion.button>
                         }
