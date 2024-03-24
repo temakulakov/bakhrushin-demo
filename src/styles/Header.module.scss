@@ -10,6 +10,16 @@
   right: 0;
   height: fit-content;
   z-index: 101;
+
+  h1, h2, h3, h4, h5, h6, p, a, button {
+    color: white;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+  }
 }
 
 .head {

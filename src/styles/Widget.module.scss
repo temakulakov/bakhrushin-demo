@@ -17,6 +17,7 @@
   }
   h1 {
     margin: 0;
+    margin-bottom: 20px;
     text-transform: uppercase;
   }
 
@@ -31,4 +32,17 @@
 
 .title {
   margin-bottom: 10px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button:hover {
+    fill: white;
+  }
 }

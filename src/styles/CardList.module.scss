@@ -31,6 +31,11 @@
   display: flex;
   width: 100%;
   overflow-x: scroll;
-
+  crollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none;  /* Для Internet Explorer и Edge */
   margin: 10px 0;
+  &::-webkit-scrollbar {
+    width: 0px; /* Для WebKit (Safari, Chrome и т.д.) */
+    background: transparent; /* Сделать скроллбар прозрачным */
+  }
 }
