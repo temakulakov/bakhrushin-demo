@@ -233,91 +233,79 @@ const Slider = ({reference}: SliderProps) => {
             </div>
         </motion.div>,
     ]
+    const [ hover, setHover ] = useState(false)
+    return <div
+        className={styles.root}
+        ref={reference}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+    >
+        <AnimatePresence>
+            {
+                hover && <>
+                    <motion.div
+                        initial={{ opacity: 0, transform: 'translateX(-50%)' }}
+                        animate={{ opacity: 1, transform: 'translateX(0)' }}
+                        exit={{ opacity: 0, transform: 'translateX(-50%)' }}
 
-    // useEffect(() => {
-    //     const timer = setInterval(() => {
-    //         if (progress < 100) {
-    //             setProgress(prevProgress => prevProgress + 1);
-    //         } else {
-    //             setProgress(0);
-    //             if (slider.id === data.length - 1) {
-    //                 setSlider(data[0]);
-    //             } else {
-    //                 setSlider(prevProgress => data[prevProgress.id + 1]);
-    //             }
-    //         }
-    //     }, 200); // уменьшаем интервал для инкрементации чаще
-    //     return () => clearInterval(timer);
-    // }, [progress]);
-    return <div className={styles.root} ref={reference}>
-        <div
-            onClick={() => {
-                setDirection('left');
-                setSlider(prevProgress => {
-                    if (prevProgress.id === 0) {
-                        return data[data.length - 1]
-                    }
-                    return data[prevProgress.id - 1];
-                });
-                setProgress(0);
-            }}
-            className={styles.controlsLeft}
-            style={{marginLeft: "20px"}}
-        >
-            <svg style={{transform: 'rotate(90deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
-                 fill="none"
-                 stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                 viewBox="0 0 24 24">
-                <path d="m6 9 6 6 6-6"></path>
-            </svg>
-        </div>
-        <div
-            onClick={() => {
-                setDirection('right');
+                        onClick={() => {
+                            setDirection('left');
+                            setSlider(prevProgress => {
+                                if (prevProgress.id === 0) {
+                                    return data[data.length - 1]
+                                }
+                                return data[prevProgress.id - 1];
+                            });
+                            setProgress(0);
+                        }}
+                        className={styles.controlsLeft}
+                        style={{marginLeft: "20px"}}
+                    >
+                        <svg style={{transform: 'rotate(90deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
+                             fill="none"
+                             stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                             viewBox="0 0 24 24">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, transform: 'translateX(50%)' }}
+                        animate={{ opacity: 1, transform: 'translateX(0)' }}
+                        exit={{ opacity: 0, transform: 'translateX(50%)' }}
+                        onClick={() => {
+                            setDirection('right');
 
-                setSlider(prevProgress => {
-                    if (prevProgress.id === data.length - 1) {
-                        return data[0]
-                    }
-                    return data[prevProgress.id + 1];
-                });
-                setProgress(0);
+                            setSlider(prevProgress => {
+                                if (prevProgress.id === data.length - 1) {
+                                    return data[0]
+                                }
+                                return data[prevProgress.id + 1];
+                            });
+                            setProgress(0);
+                        }
+                        }
+                        className={styles.controlsLeft}
+                        style={{right: 0, marginRight: "20px"}}>
+                        <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
+                             fill="none"
+                             stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                             viewBox="0 0 24 24">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </motion.div>
+                </>
             }
-            }
-            className={styles.controlsLeft}
-            style={{right: 0, marginRight: "20px"}}>
-            <svg style={{transform: 'rotate(270deg)'}} xmlns="http://www.w3.org/2000/svg" width="27px" height="27px"
-                 fill="none"
-                 stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                 viewBox="0 0 24 24">
-                <path d="m6 9 6 6 6-6"></path>
-            </svg>
-        </div>
+        </AnimatePresence>
 
         {
             sliderrs[slider.id]
         }
 
-        {/*<div className={styles.indicators}>*/}
-        {/*    {*/}
-        {/*        data.map((item, index) => <Loader key={index} keyy={index} progress={progress}*/}
-        {/*                                          active={item.id === slider.id ? true : false} slider={slider}/>)*/}
-        {/*    }*/}
-        {/*</div>*/}
         <div className={styles.imageContainer}>
             <motion.img
                 draggable="false"
                 initial={{opacity: 0, y: 110}}
                 animate={{opacity: 1, y: 0}}
-                // style={{
-                //     position: "absolute",
-                //     top: 0,
-                //     left: 0,
-                //     width: '100%',
-                //     minHeight: '100%',
-                //     zIndex: 1,
-                //     objectFit: "cover"
-                // }}
                 src={filials}
                 className={styles.image}
             />

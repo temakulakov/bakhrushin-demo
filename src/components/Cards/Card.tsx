@@ -38,11 +38,12 @@ const Card = ({duration, imageUrl, title, position, type}: ICardProps) => {
         <motion.p animate={{color: hover ? 'white' : '#52565A'}} className={styles.title}>{title}</motion.p>
 
         <motion.p animate={{color: hover ? 'white' : '#52565A'}} className={styles.position}>
-            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="5" cy="5" r="5" style={{fill: hover ? "#EEEEEF" : 'white'}}/>
-                <path d="M5 12L1 8H9L5 12Z"  style={{fill: hover ? "#EEEEEF" : 'white'}}/>
-                <circle cx="5" cy="5" r="2"  style={{fill: hover ? "white" : '#EEEEEF'}}/>
-            </svg>
+            <motion.svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.circle cx="5" cy="5" r="5"  animate={{fill: !hover ? "#53565A" : 'white'}}/>
+                <motion.path d="M5 12L1 8H9L5 12Z"  animate={{fill: !hover ? "#53565A" : 'white'}}/>
+                <motion.circle cx="5" cy="5" r="2"  animate={{fill: !hover ? "white" : '#53565A'}}/>
+            </motion.svg>
+
             {position}</motion.p>
     </motion.div>
 };

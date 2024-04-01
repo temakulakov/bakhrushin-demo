@@ -15,7 +15,7 @@ const FilialCard = ({ filial }: FilialCardProps) => {
     const isInView = useInView(ref);
 
 
-    const [ hover, setHover ] = useState(false);
+    const [ hover, setHover ] = useState(true);
     const [ buttonHover, setButtonHover ] = useState(false);
 
     const textColor = getTextColorBasedOnBgColor(filial.backgroundColor);
@@ -61,6 +61,18 @@ const FilialCard = ({ filial }: FilialCardProps) => {
                                 animate={{opacity: 1, transform: "translateY(35px)", color: buttonHover ? filial.backgroundColor : textColor, borderColor: textColor, backgroundColor: buttonHover ? textColor : 'transparent'}}
                                 exit={{opacity: 0, transform: "translateY(0px)"}}
                             >{`Перейти в ${filial.type === 'quarter' ? 'Здание' : 'Филиал'}`}</motion.button>
+                        }
+                    </AnimatePresence>
+                    <AnimatePresence>
+                        {
+                            hover && <motion.img
+                            src={filial.imageAddUrl}
+                            initial={{opacity: 0, transform: "translateY(40px)"}}
+                            animate={{opacity: 1, transform: "translateY(0px)"}}
+                            exit={{opacity: 0, transform: "translateY(40px)"}}
+                            className={styles.addImage}
+                            >
+                            </motion.img>
                         }
                     </AnimatePresence>
                 </motion.div>
